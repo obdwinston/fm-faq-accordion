@@ -11,6 +11,7 @@
 :root {
   --white: hsl(0, 0%, 100%);
   --light-pink: hsl(275, 100%, 97%);
+  --purple: hsl(281, 83%, 54%);
   --grayish-purple: hsl(292, 16%, 49%);
   --dark-purple: hsl(292, 42%, 14%);
 }
@@ -25,7 +26,7 @@ body {
 .background {
   background-image: url("assets/images/background-pattern-desktop.svg");
   width: 100vw;
-  height: 30vh;
+  height: 35vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,13 +35,13 @@ body {
 .card {
   /* border: 1px solid blue; */
   position: absolute;
-  top: 15%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
 
   width: 90%;
-  max-width: 700px;
-  padding: 30px 50px;
+  max-width: 600px;
+  padding: 40px;
   background: var(--white);
   border-radius: 20px;
 }
@@ -66,7 +67,6 @@ body {
 
 .question,
 .answer {
-  padding: 10px;
   margin-bottom: 15px;
 }
 
@@ -75,7 +75,6 @@ body {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  border-radius: 10px;
 }
 
 .question-title {
@@ -87,6 +86,10 @@ body {
 .answer {
   color: var(--grayish-purple);
   line-height: 1.5rem;
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 hr.solid {
@@ -94,7 +97,11 @@ hr.solid {
   margin-bottom: 15px;
 }
 
-.active,
-.question:hover {
-  background-color: var(--light-pink);
+.question.active p,
+.question p:hover {
+  color: var(--purple);
+}
+
+.question.active p:hover {
+  color: var(--dark-purple);
 }
